@@ -1,0 +1,187 @@
+/* --- Reset e Configurações Gerais --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Cabeçalho e Navegação --- */
+header {
+    background-color: #2c3e50; /* Azul Escuro Institucional */
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+nav {
+    background-color: #34495e;
+    padding: 0.5rem;
+}
+
+nav a {
+    color: #ecf0f1;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+nav a:hover {
+    color: #3498db; /* Azul claro ao passar o mouse */
+    text-decoration: underline;
+}
+
+/* --- Layout Principal --- */
+main {
+    flex: 1; /* Empurra o rodapé para baixo */
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    width: 90%;
+}
+
+h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* --- Listas e Itens --- */
+ul {
+    list-style: none;
+}
+
+li {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+li:hover {
+    background-color: #f9f9f9;
+}
+
+/* --- Botões e Links de Ação --- */
+a {
+    color: #2980b9;
+    text-decoration: none;
+}
+
+/* Estilo para links de botões (Editar/Excluir) */
+a[href*="excluir"] {
+    color: #c0392b; /* Vermelho para perigo */
+    margin-left: 10px;
+    font-size: 0.9rem;
+}
+
+a[href*="detalhes"], a[href*="atualizar"] {
+    color: #27ae60; /* Verde para sucesso/edição */
+    margin-left: 10px;
+    font-size: 0.9rem;
+}
+
+/* --- Formulários (Login e Cadastro) --- */
+form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #27ae60;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #219150;
+}
+
+/* --- Tabelas (Para o Histórico) --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+/* --- Rodapé --- */
+footer {
+    background-color: #2c3e50;
+    color: #bdc3c7;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto;
+    font-size: 0.9rem;
+}
+
+/* --- Utilitários de Status --- */
+strong {
+    font-weight: bold;
+}
+/* Se o texto for "Disponível", você pode usar classes no HTML depois */

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Armamentos{% endblock %}
+
+{% block content %}
+<h2>Armamentos Cadastrados</h2>
+<ul>
+    {% for arma in armamentos %}
+    <li>
+        {{ arma.modelo }} - Série: {{ arma.numero_serie }} - 
+        <strong>{% if arma.disponivel %}Disponível{% else %}Indisponível{% endif %}</strong>
+        [ <a href="{% url 'detalhes_armamento' arma.pk %}">Ver Detalhes</a> ]
+        [ <a href="{% url 'excluir_armamento' arma.pk %}" onclick="return confirm('Excluir este armamento?');">Excluir</a> ]
+    </li>
+    {% empty %}
+    <li>Nenhum armamento cadastrado.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

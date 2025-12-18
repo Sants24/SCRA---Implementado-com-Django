@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{% if form.instance.pk %}Atualizar{% else %}Cadastrar{% endif %} Armamento</h2>
+<form method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit">Salvar Registro</button>
+</form>
+<br>
+<a href="{% url 'listar_armamentos' %}">Voltar para a Lista</a>
+{% endblock %}

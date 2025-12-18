@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Histórico de Movimentações{% endblock %}
+
+{% block content %}
+<h2>Histórico de Armamento</h2>
+<table border="1">
+    <tr>
+        <th>Data</th>
+        <th>Armamento</th>
+        <th>Usuário (Armeiro)</th>
+        <th>Operação</th>
+    </tr>
+    {% for mov in movimentacoes %}
+    <tr>
+        <td>{{ mov.data_registro|date:"d/m/Y H:i" }}</td>
+        <td>{{ mov.armamento.modelo }}</td>
+        <td>{{ mov.usuario.username }}</td>
+        <td>{{ mov.get_tipo_display }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
