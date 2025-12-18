@@ -1,22 +1,44 @@
 {% extends 'base.html' %}
+
 {% block title %}Histórico de Movimentações{% endblock %}
 
 {% block content %}
-<h2>Histórico de Armamento</h2>
-<table border="1">
-    <tr>
-        <th>Data</th>
-        <th>Armamento</th>
-        <th>Usuário (Armeiro)</th>
-        <th>Operação</th>
-    </tr>
-    {% for mov in movimentacoes %}
-    <tr>
-        <td>{{ mov.data_registro|date:"d/m/Y H:i" }}</td>
-        <td>{{ mov.armamento.modelo }}</td>
-        <td>{{ mov.usuario.username }}</td>
-        <td>{{ mov.get_tipo_display }}</td>
-    </tr>
-    {% endfor %}
+<h2>Histórico de Cautelas e Devoluções</h2>
+
+<div style="margin-bottom: 20px;">
+    <a href="{% url 'registrar_movimentacao' %}" class="btn-acao">Nova Movimentação</a>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Data/Hora</th>
+            <th>Armamento</th>
+            <th>Tipo</th>
+            <th>Responsável</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for mov in movimentacoes %}
+        <tr>
+            <td>{{ mov.data_registro|date:"d/m/Y H:i" }}</td>
+            <td>{{ mov.armamento.modelo }} ({{ mov.armamento.numero_serie }})</td>
+            
+            <td>
+                {% if mov.tipo_movimentacao == 'SAIDA' %}
+                    <span style="color: red; font-weight: bold;">SAÍDA (Cautela)</span>
+                {% else %}
+                    <span style="color: green; font-weight: bold;">ENTRADA (Devolução)</span>
+                {% endif %}
+            </td>
+            
+            <td>{{ mov.responsavel }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">Nenhuma movimentação registrada.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
 </table>
 {% endblock %}

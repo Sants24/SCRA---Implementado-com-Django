@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Registrar Movimentação{% endblock %}
+
+{% block content %}
+<h2>Registrar Cautela ou Devolução</h2>
+
+<form method="POST" action="">
+    {% csrf_token %}
+
+    <p>
+        <label for="armamento">Selecione o Armamento:</label>
+        <select name="armamento" id="armamento" required>
+            <option value="" disabled selected>Escolha uma arma...</option>
+            {% for arma in armamentos %}
+                <option value="{{ arma.id }}">
+                    {{ arma.modelo }} (Série: {{ arma.numero_serie }}) 
+                    - [{% if arma.disponivel %}Disponível{% else %}Em uso{% endif %}]
+                </option>
+            {% endfor %}
+        </select>
+    </p>
+
+    <p>
+        <label for="tipo">Tipo de Movimentação:</label>
+        <select name="tipo" id="tipo" required>
+            <option value="SAIDA">Cautela (Saída)</option>
+            <option value="ENTRADA">Devolução (Entrada)</option>
+        </select>
+    </p>
+
+    <p>
+        <label for="responsavel">Nome do Responsável/Policial:</label>
+        <input type="text" name="responsavel" id="responsavel" placeholder="Ex: Sd. Silva" required>
+    </p>
+
+    <button type="submit">Confirmar Movimentação</button>
+</form>
+{% endblock %}
