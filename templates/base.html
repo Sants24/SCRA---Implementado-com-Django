@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>{% block title %} SCRA - Sistema de Armamento {% endblock %}</title>
-    
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/brasao2.0.png' %}"/>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header>
-        <h1>SCRA - Controle de Armamento</h1>
+        <div class="header-content">
+            <a href="{% url 'listar_armamentos' %}" class="logo-link">
+                <img src="{% static 'img/brasao2.0.png' %}" alt="Brasão Exército" class="header-logo">
+            </a>
+            
+            <h1>SCRA - Controle de Armamento</h1>
+        </div>
+
         <nav>
             <a href="{% url 'listar_armamentos' %}">Listar Armamentos</a>
             <a href="{% url 'adicionar_armamento' %}">Cadastrar Novo</a>
